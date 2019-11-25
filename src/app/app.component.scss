@@ -1,13 +1,12 @@
 .hover-item {
 
   &:hover {
-
     app-msda-dropdown {
-      //display: block;
+      display: block;
     }
   }
 
   app-msda-dropdown {
-    //display: none;
+    display: none;
   }
 }

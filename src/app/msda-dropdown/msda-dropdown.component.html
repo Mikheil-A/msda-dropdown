@@ -1,16 +1,14 @@
-<p>msda-dropdown works!</p>
-
-<div style="display: flex; flex-direction: row; border-right: 4px solid red;">
-
-  <div *ngFor="let d of data">
-    <div *ngFor="let d2 of d">
-      <h1>{{d2.headline}}</h1>
-      <div *ngFor="let product of d2.products">
-        <img [src]="product.iconUrl">
-        <div>{{product.title}}</div>
-        <div>{{product.description}}</div>
-      </div>
+<div class="dropdown">
+  <div *ngFor="let sections of data" class="sections">
+    <div *ngFor="let section of sections" class="section">
+      <h1>{{section.headline}}</h1>
+      <a href="#" *ngFor="let product of section.products" class="product">
+        <img [src]="product.iconUrl" class="product-icon">
+        <div class="description">
+          <h2>{{product.title}}</h2>
+          <span>{{product.description}}</span>
+        </div>
+      </a>
     </div>
   </div>
-
 </div>
