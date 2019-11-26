@@ -21,6 +21,7 @@ const dimensions = {
 export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewInit {
 
   @ViewChildren('navItemRef') navItemRefs: QueryList<any>;
+  @ViewChildren('sectionElRef') sectionElRefs: QueryList<any>;
 
   @ViewChild('popoverElRef', {static: true}) popoverElRef: ElementRef;
   @ViewChild('headerElRef', {static: true}) headerElRef: ElementRef;
@@ -28,7 +29,6 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
   @ViewChild('contentElRef', {static: true}) contentElRef: ElementRef;
   @ViewChild('backgroundElRef', {static: true}) backgroundElRef: ElementRef;
 
-  sectionEls;
   popoverLeft;
 
 
@@ -42,17 +42,32 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
 
 
   initializeVariables() {
-    this.sectionEls = document.querySelectorAll('.section');
 
     this.popoverLeft = this.popoverElRef.nativeElement.getBoundingClientRect()['x'];
   }
 
 
-  showSection(section) {
-    console.log(222222, section);
+  showSection(section, index) {
+    let activeSectionHeight;
+    let activeSectionWidth;
+
     this.popoverElRef.nativeElement.classList.add('open');
-    this.sectionEls.forEach(el => el.classList.remove('active'));
-    document.querySelector(`.section-${section}`).classList.add('active');
+    this.sectionElRefs.forEach(el => el.nativeElement.classList.remove('active'));
+    this.sectionElRefs.forEach((el, i) => {
+      if (index === i) {
+        el.nativeElement.classList.add('active');
+
+        activeSectionHeight = el.nativeElement.offsetHeight;
+        activeSectionWidth = el.nativeElement.offsetWidth;
+      }
+    });
+
+
+
+    console.log(dimensions[section], dimensions['products']);
+
+
+    // this.sectionElRefs[index].nativeElement.classList.add('active');
 
     // Position arrow
     this.arrowElRef.nativeElement['style'].transform = `translateX(${dimensions[section].arrowX}px)rotate(45deg)`;
@@ -64,8 +79,9 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
     scaleY(${dimensions[section].height / dimensions['products'].height})
   `;
 
-    // this.backgroundEl.style.width = dimensions[section].width + 100 + 'px';
-    // this.backgroundEl.style.height = dimensions[section].height + 100 + 'px';
+    // this.backgroundElRef.nativeElement.style.height = activeSectionHeight + 'px';
+    // this.backgroundElRef.nativeElement.style.width = activeSectionWidth + 'px';
+
 
     // Resize and position content
     this.contentElRef.nativeElement.style.width = dimensions[section].width + 'px';
@@ -75,7 +91,6 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
 
     // size container? If we remove from CSS and do everything dynamically.
   }
-
 
 
 
@@ -102,15 +117,6 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
 
     // Set initial arrow position
     this.arrowElRef.nativeElement['style'].transform = `translateX(${dimensions.products['arrowX']}px)rotate(45deg)`;
-
-
-    this.navItemRefs.forEach((navItem, index) => {
-      navItem.nativeElement.addEventListener('mouseenter', (event) => {
-        const targetPopover = event.target.innerText;
-        console.log(event);
-        this.showSection(targetPopover);
-      });
-    });
 
 
     this.headerElRef.nativeElement.addEventListener('mouseleave', () => {
