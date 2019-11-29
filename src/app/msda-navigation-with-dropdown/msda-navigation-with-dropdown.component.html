@@ -1,26 +1,9 @@
-<!--<div class="dropdown">-->
-<!--  <div *ngFor="let sections of data" class="sections">-->
-<!--    <div *ngFor="let section of sections" class="section">-->
-<!--      <h1>{{section.headline}}</h1>-->
-<!--      <a href="#" *ngFor="let product of section.products" class="product">-->
-<!--        <img [src]="product.iconUrl" class="product-icon">-->
-<!--        <div class="description">-->
-<!--          <h2>{{product.title}}</h2>-->
-<!--          <span>{{product.description}}</span>-->
-<!--        </div>-->
-<!--      </a>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
-<header class="header" #headerElRef>
+<header #headerElRef>
 
   <section>
     <nav class="nav">
       <button *ngFor="let navItem of navigationData; let i = index" class="nav-link" #navItemRef
-              (mouseenter)="showSection($event.target.innerText, i)">
+              (mouseenter)="showSection(i)">
         {{navItem.itemName}}
       </button>
     </nav>
@@ -30,106 +13,25 @@
     <div class="content" #contentElRef>
 
       <section *ngFor="let navItem of navigationData" class="section" #sectionElRef>
-        <h1>{{navItem.itemName}}</h1>
 
         <div *ngFor="let dropdownInfo of navItem.dropdownData">
-          {{dropdownInfo.headline}}
+          <h1 class="headline">{{dropdownInfo.headline}}</h1>
+
+          <a href="#" *ngFor="let product of dropdownInfo.products" class="product">
+            <img [src]="product.iconUrl" class="product-icon">
+            <div class="description">
+              <h2>{{product.title}}</h2>
+              <span>{{product.description}}</span>
+            </div>
+          </a>
         </div>
 
-        <div>
-          <!--          {{navItem.dropdownData}}-->
-        </div>
       </section>
 
-
-
-
-
-<!--      &lt;!&ndash; PRODUCTS POPOVER &ndash;&gt;-->
-<!--      <section class="section section-products" #sectionElRef>-->
-
-<!--        <h1>productssss</h1>-->
-
-<!--        &lt;!&ndash;        <ul class="navlist-primary">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li class="navlist-primary-payments">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="circle"></div>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="navlist-primary-text">&ndash;&gt;-->
-<!--        &lt;!&ndash;              <h3>Payments</h3>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <p>A complete payments platform engineered for growth</p>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li class="navlist-primary-billing">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="circle"></div>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="navlist-primary-text">&ndash;&gt;-->
-<!--        &lt;!&ndash;              <h3>Billing</h3>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <p>Build and scale your recurring business model.</p>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li class="navlist-primary-connect">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="circle"></div>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <div class="navlist-primary-text">&ndash;&gt;-->
-<!--        &lt;!&ndash;              <h3>Connect</h3>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <p>Everything platforms need to get sellers paid.</p>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </li>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </ul>&ndash;&gt;-->
-
-<!--      </section>-->
-
-<!--      &lt;!&ndash; DEVELOPERS POPOVER &ndash;&gt;-->
-<!--      <section class="section section-developers" #sectionElRef>-->
-
-<!--        <h1>developersssss</h1>-->
-
-<!--        &lt;!&ndash;        <ul class="navlist">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Documentation</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </ul>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <p class="subtle">Start integrating Stripe's products and tools.</p>&ndash;&gt;-->
-<!--        &lt;!&ndash;        <div class="two-col">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <div>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <h4>Get started</h4>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <ul class="navlist-subtle">&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Elements</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Checkout</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Mobile apps</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Libraries</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </ul>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <div>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <h4>Popular topics</h4>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <ul class="navlist-subtle">&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Apple Pay</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Testing</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Launch checklist</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;              <li>Plug-ins</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </ul>&ndash;&gt;-->
-<!--        &lt;!&ndash;          </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </div>&ndash;&gt;-->
-<!--        &lt;!&ndash;        &ndash;&gt;-->
-<!--      </section>-->
-
-<!--      &lt;!&ndash; COMPANY POPOVER &ndash;&gt;-->
-<!--      <section class="section section-company" #sectionElRef>-->
-
-<!--        <h1>companyyyy</h1>-->
-
-<!--        &lt;!&ndash;        <ul class="navlist">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>About Stripe</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Customers</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Partner program</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Jobs</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Environment</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;          <li>Newsroom</li>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </ul>&ndash;&gt;-->
-<!--        &lt;!&ndash;        &ndash;&gt;-->
-<!--      </section>-->
-
-<!--      -->
-<!--      -->
-
-
     </div>
+
     <div class="background" #backgroundElRef></div>
     <div class="arrow" #arrowElRef></div>
   </div>
+
 </header>
