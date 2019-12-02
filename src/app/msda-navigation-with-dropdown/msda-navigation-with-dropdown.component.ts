@@ -44,6 +44,10 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
 
       if (index === i) {
         el.nativeElement.classList.add('active');
+
+        // el.nativeElement.addEventListener('mouseleave', () => {
+        //   this.popoverElRef.nativeElement.classList.remove('open');
+        // });
       }
     });
 
@@ -90,7 +94,6 @@ export class MsdaNavigationWithDropdownComponent implements OnInit, AfterViewIni
     this.popoverLeft = this.popoverElRef.nativeElement.getBoundingClientRect().x;
 
     this.navItemRefs.forEach((navItem, i) => {
-      const section = navItem.nativeElement.innerText;
       const rect = navItem.nativeElement.getBoundingClientRect();
       this.dimensions[i]['arrowX'] = rect.left + (rect.width / 2) - this.popoverLeft;
     });
