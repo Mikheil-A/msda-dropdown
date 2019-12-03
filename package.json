@@ -1,13 +1,14 @@
 {
   "name": "msda-dropdown",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4100",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "msdaautocompletebuild": "ng build msda-dropdown-lib"
   },
   "private": false,
   "dependencies": {

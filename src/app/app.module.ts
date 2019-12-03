@@ -14,6 +14,9 @@ import { MsdaNavigationWithDropdownComponent } from './msda-navigation-with-drop
     BrowserModule
   ],
   providers: [],
+  exports: [
+    MsdaNavigationWithDropdownComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

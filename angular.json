@@ -155,6 +155,128 @@
           }
         }
       }
+    },
+    "msda-dropdown-lib-test": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/msda-dropdown-lib-test",
+      "sourceRoot": "projects/msda-dropdown-lib-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/msda-dropdown-lib-test",
+            "index": "projects/msda-dropdown-lib-test/src/index.html",
+            "main": "projects/msda-dropdown-lib-test/src/main.ts",
+            "polyfills": "projects/msda-dropdown-lib-test/src/polyfills.ts",
+            "tsConfig": "projects/msda-dropdown-lib-test/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/msda-dropdown-lib-test/src/favicon.ico",
+              "projects/msda-dropdown-lib-test/src/assets"
+            ],
+            "styles": [
+              "projects/msda-dropdown-lib-test/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/msda-dropdown-lib-test/src/environments/environment.ts",
+                  "with": "projects/msda-dropdown-lib-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "msda-dropdown-lib-test:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "msda-dropdown-lib-test:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "msda-dropdown-lib-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/msda-dropdown-lib-test/src/test.ts",
+            "polyfills": "projects/msda-dropdown-lib-test/src/polyfills.ts",
+            "tsConfig": "projects/msda-dropdown-lib-test/tsconfig.spec.json",
+            "karmaConfig": "projects/msda-dropdown-lib-test/karma.conf.js",
+            "assets": [
+              "projects/msda-dropdown-lib-test/src/favicon.ico",
+              "projects/msda-dropdown-lib-test/src/assets"
+            ],
+            "styles": [
+              "projects/msda-dropdown-lib-test/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/msda-dropdown-lib-test/tsconfig.app.json",
+              "projects/msda-dropdown-lib-test/tsconfig.spec.json",
+              "projects/msda-dropdown-lib-test/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/msda-dropdown-lib-test/e2e/protractor.conf.js",
+            "devServerTarget": "msda-dropdown-lib-test:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "msda-dropdown-lib-test:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "msda-dropdown"
