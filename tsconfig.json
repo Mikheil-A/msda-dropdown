@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "msda-dropdown-lib": [
+        "dist/msda-dropdown-lib"
+      ],
+      "msda-dropdown-lib/*": [
+        "dist/msda-dropdown-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
