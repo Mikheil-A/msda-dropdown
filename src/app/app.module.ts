@@ -1,8 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { MsdaNavigationWithDropdownComponent } from './msda-navigation-with-dropdown/msda-navigation-with-dropdown.component';
+import {AppComponent} from './app.component';
+import {MsdaNavigationWithDropdownComponent} from './msda-navigation-with-dropdown/msda-navigation-with-dropdown.component';
+
+
+// FIXME these work perfectly, it's a tslint problem which makes them red underlined
+import {MsdaDropdownLibModule} from 'msda-dropdown-lib';
+import {MyTestModule} from 'my-test';
+
 
 
 @NgModule({
@@ -11,7 +17,10 @@ import { MsdaNavigationWithDropdownComponent } from './msda-navigation-with-drop
     MsdaNavigationWithDropdownComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
+    MyTestModule,
+    MsdaDropdownLibModule
   ],
   providers: [],
   exports: [
@@ -19,4 +28,5 @@ import { MsdaNavigationWithDropdownComponent } from './msda-navigation-with-drop
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
