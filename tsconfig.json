@@ -24,12 +24,6 @@
       ],
       "msda-dropdown-lib/*": [
         "dist/msda-dropdown-lib/*"
-      ],
-      "my-test": [
-        "dist/my-test"
-      ],
-      "my-test/*": [
-        "dist/my-test/*"
       ]
     }
   },

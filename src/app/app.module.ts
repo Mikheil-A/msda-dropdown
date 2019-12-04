@@ -5,9 +5,8 @@ import {AppComponent} from './app.component';
 import {MsdaNavigationWithDropdownComponent} from './msda-navigation-with-dropdown/msda-navigation-with-dropdown.component';
 
 
-// FIXME these work perfectly, it's a tslint problem which makes them red underlined
+// you need to have this library installed
 import {MsdaDropdownLibModule} from 'msda-dropdown-lib';
-import {MyTestModule} from 'my-test';
 
 
 
@@ -19,7 +18,6 @@ import {MyTestModule} from 'my-test';
   imports: [
     BrowserModule,
 
-    MyTestModule,
     MsdaDropdownLibModule
   ],
   providers: [],
