@@ -6,7 +6,7 @@ import {MsdaNavigationWithDropdownComponent} from './msda-navigation-with-dropdo
 
 
 // you need to have this library installed
-import {MsdaDropdownLibModule} from 'msda-dropdown-lib';
+// import {MsdaDropdownLibModule} from 'msda-dropdown-lib';
 
 
 
@@ -16,9 +16,9 @@ import {MsdaDropdownLibModule} from 'msda-dropdown-lib';
     MsdaNavigationWithDropdownComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule
 
-    MsdaDropdownLibModule
+    // MsdaDropdownLibModule
   ],
   providers: [],
   exports: [
