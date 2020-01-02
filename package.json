@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "msdadropdownlibbuild": "ng build msda-dropdown-lib"
+    "msdadropdownlibbuild": "ng build msda-dropdown-lib",
+    "msdadropdownlibpublish": "cd dist/msda-dropdown-lib && npm publish"
   },
   "private": false,
   "dependencies": {
